@@ -33,8 +33,8 @@ Simular una red corporativa o institucional en la que se integran servicios clav
 1. **Clona este repositorio:**
 
    ```bash
-   git clone https://github.com/reDragonCoder/red-de-servicios-en-docker.git
-   cd red-de-servicios-en-docker
+   git clone https://github.com/reDragonCoder/docker-service-network.git
+   cd docker-service-network
    ```
 
 2. **Construye y levanta los servicios:**
