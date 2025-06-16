@@ -1,0 +1,6 @@
+# Block requests containing these keywords in the URL
+porn
+gambling
+violence
+drugs
+hacking

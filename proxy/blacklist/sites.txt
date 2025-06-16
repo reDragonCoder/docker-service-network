@@ -1,0 +1,6 @@
+# Block access to the following domains and their subdomains
+.facebook.com
+.youtube.com
+.instagram.com
+.tiktok.com
+.twitter.com

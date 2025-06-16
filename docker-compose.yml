@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  proxy:
+    build: ./proxy
+    container_name: proxy
+    ports:
+      - "3128:3128"
+    cap_add:
+      - NET_ADMIN           
+    networks:
+      net:
+        ipv4_address: 172.20.0.30
+    dns:
+      - 172.20.0.10        
+
+  web:
+    build: ./web
+    container_name: web
+    ports:
+      - "80:80"
+    cap_add:
+      - NET_ADMIN           
+    networks:
+      net:
+        ipv4_address: 172.20.0.20
+    dns:
+      - 172.20.0.10
+
+  dns:
+    build: ./dns
+    container_name: dns
+    ports:
+      - "53:53/udp"
+    cap_add:
+      - NET_ADMIN         
+    networks:
+      net:
+        ipv4_address: 172.20.0.10
+
+  client:
+    build: ./client
+    container_name: test-client
+    mac_address: 4a:2b:62:16:6e:21  
+    cap_add:
+      - NET_ADMIN           
+    networks:
+      net:
+        ipv4_address: 172.20.0.40
+    dns:
+      - 172.20.0.10
+
+networks:
+  net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/24
